@@ -1,4 +1,8 @@
 #include "pokemon.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
 
 Fire::Fire(int index) : Pokemon(index){
 	maxHP+=1; speed+=2;
@@ -33,4 +37,13 @@ Pokemon *make_pokemon(element e, std::string n) {
 	}
 	return newPokemon;
 
+}
+
+void Pokemon::write()
+{
+	string fileName = this.ID + ".dat";
+	ofstream myFile;
+	myFile.open(fileName.c_str());
+	myFile << this;
+	myFile.close();	
 }

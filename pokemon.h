@@ -12,6 +12,7 @@ class Pokemon {
 private:
 	std::string name;
 	int level = 1;
+	int ID;
 protected:
 	int maxHP = 20;
 	int currentHP = maxHP;
@@ -20,7 +21,14 @@ protected:
 	int defense = 10;
 	int specialAttack = 10;
 	int specialDefense = 10;
-
+struct PokeEntry {
+	int number;
+	char name[20];
+	char type[10];
+	char description[100];
+	PokeEntry() {};
+	PokeEntry(int n) {};
+};
 public:
 	Pokemon(int i) {}
 	~Pokemon() {}
@@ -37,7 +45,22 @@ public:
 		return currentHP;
 	}
 	friend Pokemon* make_pokemon(element type, std::string name);
+	void write();
 
+ostream& operator<< (ostream &out, Pokemon myPokemon)
+{
+	out << "<pokemon>" <<endl;
+	out << "\t<id> " << myPokemon.ID << " </id>"<<endl;
+	out << "\t<name> " << myPokemon.name << " </name>"<<endl;
+	out << "\t<attack> " << myPokemon.attack << " </attack>"<<endl;
+	out << "\t<defense> " << myPokemon.defense << " </defense>"<<endl;
+	out << "\t<entry>"<<endl;
+	out << "\t\t<number> " << myPokemon->PokeEntry.number << " </number>"<<endl;
+	out << "\t\t<name> " << myPokemon->PokeEntry.name << " </name>"<<endl;
+	out << "\t/<entry>"<<endl;
+	out << "/<pokemon>" <<endl;
+	return out;
+}
 };
 
 class Fire: public Pokemon {
@@ -54,5 +77,6 @@ class Grass: public Pokemon {
 public:
 	Grass(int index);
 };
+
 
 #endif // POKEMON_H
