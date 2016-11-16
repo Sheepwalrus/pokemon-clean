@@ -2,9 +2,11 @@
 #define POKEMON_H
 
 #include <string>
+#include <cmath>
+#include <list>
 
 enum class element {
-    fire = 0, water = 1, grass = 2
+    fire = 0, water = 1, grass = 2, normal = 3, dragon = 4
 };
 
 
@@ -21,14 +23,6 @@ protected:
 	int defense = 10;
 	int specialAttack = 10;
 	int specialDefense = 10;
-struct PokeEntry {
-	int number;
-	char name[20];
-	char type[10];
-	char description[100];
-	PokeEntry() {};
-	PokeEntry(int n) {};
-};
 public:
 	Pokemon(int i) {}
 	~Pokemon() {}
@@ -44,6 +38,9 @@ public:
 	int get_currentHP() {
 		return currentHP;
 	}
+
+	int take_damage(int damageAmount, std::list<element> damageTypes);
+
 	friend Pokemon* make_pokemon(element type, std::string name);
 	void write();
 
