@@ -15,6 +15,14 @@ private:
 	std::string name;
 	int level = 1;
 	int ID;
+struct PokeEntry {
+	int number;
+	char name[20];
+	char type[10];
+	char description[100];
+	PokeEntry() {};
+	PokeEntry(int n) {};
+};
 protected:
 	int maxHP = 20;
 	int currentHP = maxHP;
