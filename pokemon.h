@@ -15,14 +15,7 @@ private:
 	std::string name;
 	int level = 1;
 	int ID;
-struct PokeEntry {
-	int number;
-	char name[20];
-	char type[10];
-	char description[100];
-	PokeEntry() {};
-	PokeEntry(int n) {};
-};
+	PokeEntry Entry;
 protected:
 	int maxHP = 20;
 	int currentHP = maxHP;
@@ -60,8 +53,8 @@ ostream& operator<< (ostream &out, Pokemon myPokemon)
 	out << "\t<attack> " << myPokemon.attack << " </attack>"<<endl;
 	out << "\t<defense> " << myPokemon.defense << " </defense>"<<endl;
 	out << "\t<entry>"<<endl;
-	out << "\t\t<number> " << myPokemon->PokeEntry.number << " </number>"<<endl;
-	out << "\t\t<name> " << myPokemon->PokeEntry.name << " </name>"<<endl;
+	out << "\t\t<number> " << myPokemon->Entry.number << " </number>"<<endl;
+	out << "\t\t<name> " << myPokemon->Entry.name << " </name>"<<endl;
 	out << "\t/<entry>"<<endl;
 	out << "/<pokemon>" <<endl;
 	return out;
@@ -82,6 +75,13 @@ class Grass: public Pokemon {
 public:
 	Grass(int index);
 };
-
+struct PokeEntry {
+	int number;
+	char name[20];
+	char type[10];
+	char description[100];
+	PokeEntry() {};
+	PokeEntry(int n) {};
+};
 
 #endif // POKEMON_H
