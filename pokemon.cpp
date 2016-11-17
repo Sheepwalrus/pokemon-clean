@@ -16,7 +16,37 @@ Water::Water(int index) : Pokemon(index){
 	attack-=2; defense+=2;
 	specialAttack-=4; specialDefense-=1;
 	weaknesses.push_back(element::grass);
+	virtual int attack1(Pokemon* PokePointer)
+	{
+		cout<<this->name<<" used Bubble."<<PokePointer->Entry.name<<" took "<<PokePointer->take_damage(2, list<element> (water))<<" Damage.";//Bubble
+	}
 }
+
+Squirtle::Squirtle() : Water(7)
+{
+	virtual int attack2(Pokemon* PokePointer)
+	{
+		cout<<this->name<<" used Tackle."<<PokePointer->Entry.name<<" took "<<PokePointer->take_damage(2, list<element> (normal))<<" Damage.";//Tackle
+	}
+} 
+Wartortle::Wartortle() : Water(8)
+{
+	virtual int attack2(Pokemon* PokePointer)
+	{
+		cout<<this->name<<" used Surf."<<PokePointer->Entry.name<<" took "<<PokePointer->take_damage(4, list<element> (water))<<" Damage.";//Surf
+	}
+} 
+Blastoise::Blastoise() : Water(9)
+{
+	virtual int attack1(Pokemon* PokePointer)
+	{
+		cout<<this->name<<" used Water Pledge."<<PokePointer->Entry.name<<" took "<<PokePointer->take_damage(8, list<element> (water,dragon))<<" Damage.";//Water Pledge
+	}
+		virtual int attack2(Pokemon* PokePointer)
+	{
+		cout<<this->name<<" used Hydro Cannon."<<PokePointer->Entry.name<<" took "<<PokePointer->take_damage(6, list<element> (water))<<" Damage.";//Hydro Cannon
+	}
+} 
 
 Grass::Grass(int index) : Pokemon(index){
 	maxHP-=3; speed-=2;

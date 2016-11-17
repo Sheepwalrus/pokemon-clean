@@ -4,6 +4,7 @@
 #include <string>
 #include <cmath>
 #include <list>
+#include <string>
 
 enum class element {
     fire = 0, water = 1, grass = 2, normal = 3, dragon = 4
@@ -41,7 +42,12 @@ public:
 	}
 
 	int take_damage(int damageAmount, std::list<element> damageTypes);
-
+	string get_species()
+	{
+		return this->Entry.name;
+	}
+	virtual int attack1(Pokemon* PokePointer);
+	virtual int attack2(Pokemon* PokePointer);
 	friend Pokemon* make_pokemon(element type, std::string name);
 	void write();
 
@@ -69,6 +75,30 @@ public:
 class Water: public Pokemon {
 public:
 	Water(int index);
+};
+
+class Squirtle: public Water 
+{
+	Squirtle(string nickname="Squirtle")
+	{
+		Pokemon.name=nickname;
+	};	
+};
+
+class Wartortle: public Water 
+{
+	Wartortle(string nickname="Wartortle");	
+	{
+		Pokemon.name=nickname;
+	};
+};
+
+class Blastoise: public Water 
+{
+	Blastoise(string nickname="Blastoise");	
+	{
+		Pokemon.name=nickname;
+	};
 };
 
 class Grass: public Pokemon {
