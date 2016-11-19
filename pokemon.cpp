@@ -85,7 +85,7 @@ Pokemon *make_pokemon(element e, std::string n) {
 
 void Pokemon::write()
 {
-	string fileName = this.ID + ".dat";
+	string fileName = this->ID + ".dat";
 	ofstream myFile;
 	myFile.open(fileName.c_str());
 	myFile << this;
