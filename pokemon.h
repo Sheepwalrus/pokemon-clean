@@ -48,7 +48,7 @@ public:
 	}
 	virtual int attack1(Pokemon* PokePointer);
 	virtual int attack2(Pokemon* PokePointer);
-	friend Pokemon* make_pokemon(element type, std::string name);
+	friend Pokemon* make_pokemon(int index);
 	void write();
 
 ostream& operator<< (ostream &out, Pokemon myPokemon)

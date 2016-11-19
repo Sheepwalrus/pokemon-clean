@@ -66,18 +66,14 @@ int Pokemon::take_damage(int damageAmount, std::list<element> damageTypes) {
 	return damageAmount;
 };
 
-Pokemon *make_pokemon(element e, std::string n) {
+Pokemon *make_pokemon(int index) {
 
 	Pokemon *newPokemon;
-	if(e == element::fire) {
-		newPokemon = new Fire(1);
-		newPokemon->name = n;
-	} else if(e == element::grass) {
-		newPokemon = new Grass(1);
-		newPokemon->name = n;
-	} else if(e == element::water) {
-		newPokemon = new Water(1);
-		newPokemon->name = n;
+	switch(index)
+	{
+		case 7: newPokemon=new Squirtle;
+		case 8: newPokemon=new Wartortle;
+		case 9: newPokemon=new Blastoise;
 	}
 	return newPokemon;
 
